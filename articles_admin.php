@@ -1,5 +1,13 @@
 <?php
 require_once './article/config/connectdb.php';
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (!isset($_SESSION['username'])) {
+    header("Location: ../article/view/login.php");
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
